@@ -39,11 +39,11 @@ blue-and-white dashboard interface.
 
 ## 🚀 Installation
 
-### 1. Clone / copy the project
-```bash
-cd CleanAI
+42  ### 1. Clone the repository       
+43  ```bash
+44    git clone https://github.com/azraafzal4567/CleanAI.git
+45    cd CleanAI
 ```
-
 ### 2. Create a virtual environment (recommended)
 ```bash
 python -m venv venv
