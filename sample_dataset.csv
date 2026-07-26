@@ -1,0 +1,8 @@
+Full Name,Email,Phone,Age,Signup Date,City
+  john doe , JOHN.DOE@EMAIL.COM ,(021) 555-1234,twenty,2023-01-15,new york
+Jane   Smith,jane.smith@email,555 123 4567,35,15/03/2023,Los Angeles
+MIKE brown,mike.brown@email.com,021-555-9876,"1,000",invalid-date,chicago
+,sara.k@email.com,,28,,Boston
+Tom  Wilson,tom.wilson@email.com,(021) 555-12345,45,2023-07-22,Houston
+john doe,JOHN.DOE@EMAIL.COM,(021) 555-1234,twenty,2023-01-15,new york
+Lily Adams,lily.adams@email.com,555-000-000,29,not a date,Seattle
