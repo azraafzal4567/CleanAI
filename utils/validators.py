@@ -207,10 +207,24 @@ def convert_to_number(value) -> Optional[float]:
 
 
 def clean_numeric_column(series: pd.Series, fill_value: float = 0) -> pd.Series:
-    """Convert an entire column to numeric values, filling unparseable values."""
+    """
+    Convert an entire column to numeric values, filling unparseable values.
+
+    If every value in the resulting column is a whole number (no decimal
+    part), the column is returned as integers instead of floats. This avoids
+    displaying/exporting whole numbers like ages or IDs as "22.000000" —
+    they now show simply as "22". Columns that genuinely contain fractional
+    values (e.g. "45000.50") are left as floats so no precision is lost.
+    """
     converted = series.apply(convert_to_number)
     converted = converted.fillna(fill_value)
-    return pd.to_numeric(converted, errors="coerce").fillna(fill_value)
+    numeric_series = pd.to_numeric(converted, errors="coerce").fillna(fill_value)
+
+    # Check whether every value is a whole number (e.g. 22.0, not 22.5)
+    is_whole_number = (numeric_series % 1 == 0).all()
+    if is_whole_number:
+        return numeric_series.astype("int64")
+    return numeric_series
 
 
 # ----------------------------------------------------------------------------
